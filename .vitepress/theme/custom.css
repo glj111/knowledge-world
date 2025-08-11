@@ -1,0 +1,53 @@
+:root {
+  --vp-c-brand: #3d9970;
+  --vp-c-brand-light: #4caf50;
+  --vp-c-bg: #f8f8f5;
+  --vp-c-text: #2f3e46;
+}
+
+/* 宣纸背景 */
+body {
+  background: url("/assets/bcg.jpg") repeat;
+  background-size: cover;
+  font-family: "Noto Serif SC", "serif", "宋体", "STSong", serif;
+  color: var(--vp-c-text);
+  animation: fadeIn 1.5s ease;
+}
+
+/* 标题带墨色渐变 */
+h1,
+h2,
+h3 {
+  background: linear-gradient(90deg, #2f3e46, #3d9970);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* 按钮设计 */
+.hero .action .button {
+  background: linear-gradient(to right, #3d9970, #4caf50);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.hero .action .button:hover {
+  transform: scale(1.05);
+  background: #2e8b57;
+}
+
+/* 渐显动效 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

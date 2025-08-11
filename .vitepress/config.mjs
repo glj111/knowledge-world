@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "glj-world",
-  description: "knowledge-world",
+  title: "一只锅的知识世界", // 网站标题
+  description: "一只锅的知识世界", // 网站描述
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
