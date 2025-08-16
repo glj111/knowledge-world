@@ -5,17 +5,6 @@ export default defineConfig({
   title: "一只锅的知识世界", // 网站标题
   description: "一只锅的知识世界", // 网站描述
   base: "/",
-  head: [
-    // 添加不蒜子脚本，使用HTTPS链接确保在HTTPS站点上正常工作
-    [
-      "script",
-      {
-        src: "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
-        async: true,
-        defer: true,
-      },
-    ],
-  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
