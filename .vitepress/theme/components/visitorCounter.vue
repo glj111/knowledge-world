@@ -4,11 +4,25 @@ import { ref, onMounted, onUnmounted } from "vue";
 const counterLoaded = ref(false);
 const scriptLoaded = ref(false);
 
+// 定义事件处理函数，便于卸载时移除
+const handleBusuanziLoaded = () => {
+  counterLoaded.value = true;
+  console.log("[访客统计] Busuanzi 数据已就绪");
+};
+
 onMounted(() => {
   console.log("[访客统计] 组件已挂载");
 
   if (typeof window === "undefined") {
     console.log("[访客统计] 非客户端环境，终止加载");
+    return;
+  }
+
+  // 检查全局变量，防止重复加载和计数
+  if (window.busuanziInitialized) {
+    scriptLoaded.value = true;
+    counterLoaded.value = true;
+    console.log("[访客统计] 不蒜子已初始化，跳过加载");
     return;
   }
 
@@ -22,6 +36,7 @@ onMounted(() => {
 
     script.onload = () => {
       scriptLoaded.value = true;
+      window.busuanziInitialized = true; // 标记已初始化
       console.log("[访客统计] 不蒜子脚本加载成功");
     };
 
@@ -37,10 +52,12 @@ onMounted(() => {
   }
 
   // 监听 Busuanzi 数据就绪事件
-  document.addEventListener("BusuanziDOMLoaded", () => {
-    counterLoaded.value = true;
-    console.log("[访客统计] Busuanzi 数据已就绪");
-  });
+  document.addEventListener("BusuanziDOMLoaded", handleBusuanziLoaded);
+});
+
+onUnmounted(() => {
+  // 清除事件监听，防止内存泄漏
+  document.removeEventListener("BusuanziDOMLoaded", handleBusuanziLoaded);
 });
 </script>
 
