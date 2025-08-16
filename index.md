@@ -22,3 +22,16 @@ features:
   - title: 📖 读书 · 思考 · 生活
     details: 书中见世界，世界中找答案。
 ---
+
+<script setup>
+import VisitorCounter from './.vitepress/theme/components/visitorCounter.vue'
+</script>
+
+<VisitorCounter />
+
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #bd34fe, #41d1ff);
+}
+</style>
