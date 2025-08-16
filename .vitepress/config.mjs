@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "一只锅的知识世界", // 网站标题
   description: "一只锅的知识世界", // 网站描述
-  base: "/knowledge-world/",
+  base: "/",
   head: [
     // 添加不蒜子脚本，使用HTTPS链接确保在HTTPS站点上正常工作
     [
